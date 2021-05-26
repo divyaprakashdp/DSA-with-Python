@@ -60,3 +60,61 @@ class Linked_List:
         new_node = Node(data)
         new_node.next_Node = self.head
         self.head = new_node
+
+    def search(self, key):
+        """
+        Search for the first node containing data that matches the key
+        :param key:
+        :return: Node or 'None' if not found
+        """
+        current = self.head
+
+        while current:
+            if current.data == key:
+                return current
+            else:
+                current = current.next_Node
+        return None
+
+    def insert(self, data, index):
+        """
+        Inserts a new node containing data at index position
+        Takes O(1) time to insert and O(n) to point - overall O(n) time
+        """
+
+        if index == 0:
+            self.add(data)
+
+        if index > 0:
+            new = Node(data)
+
+            position = index
+            current = self.head
+
+            while position > 1:
+                current = current.next_Node
+                position -= 1
+
+            prev_node = current
+            next_node = current.next_Node
+
+            prev_node.next_Node = new
+            new.next_Node = next_node
+
+    def remove(self, key):
+        """
+        Removes node containing the data that matches the key
+        Returns the node or None if key not found
+        Take O(n) time
+        """
+
+        current = self.head
+        prev = None
+        found = False
+
+        while current and not found:
+            if current.data == key and current is self.head:
+                found = True
+                self.head = current.next_Node
+            elif current.data == key:
+                found = True

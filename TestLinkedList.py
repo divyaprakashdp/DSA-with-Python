@@ -11,3 +11,9 @@ l.add(2)
 l.add(3)
 
 print(l)
+
+print(l.search(2))
+
+l.insert(12,2)
+
+print(l)
