@@ -15,8 +15,6 @@ def find_permutation(str1,str2):
         temp = list_str1.copy()
         if i == len_list_str2-3:
             break
-        elif list_str2[i] == 'd':
-            pass
         elif list_str2[i] in temp:
             temp.remove(list_str2[i])
             if list_str2[i+1] in temp:
